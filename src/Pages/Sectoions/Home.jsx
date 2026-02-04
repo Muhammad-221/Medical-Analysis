@@ -16,7 +16,7 @@ export default function DashboardPage(){
             <TitleComp title={"Dashboard"} description={"Overview of your medical analysis center"}/>
             <div className="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
                 {stats.map((item) => (
-                    <div className={`h-24 flex gap-5 items-center p-4 border border-l-4 ${item.border} rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
+                    <div key={item.title} className={`h-24 flex gap-5 items-center p-4 border border-l-4 ${item.border} rounded-lg shadow-md hover:shadow-lg transition-shadow`}>
                         <div className={`rounded-md p-2 ${item.bg}`}>
                             <item.icon className={`h-6 w-6 ${item.color}`}/>
                         </div>

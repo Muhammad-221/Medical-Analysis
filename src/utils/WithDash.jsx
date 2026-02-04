@@ -1,4 +1,4 @@
-import DashboardLayout from "./Landing";
+import DashboardLayout from "../Layouts/Landing";
 
 export default function WithDashLayout(page){
     return(

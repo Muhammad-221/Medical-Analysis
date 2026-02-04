@@ -14,8 +14,13 @@ import {
   Activity
 } from 'lucide-react';
 
+export default function LinksLayout({full, action }){
+    const handelClose = () => {
+        if (window.innerWidth <= 1024) {
+            action();
+        }
+    }
 
-export default function LinksLayout({full, action}){
     const navItems = [
         { title: 'Dashboard', path: '/', icon: LayoutDashboard },
         { title: 'Lab Sections', path: '/sections', icon: FlaskConical },
@@ -27,11 +32,10 @@ export default function LinksLayout({full, action}){
         { title: 'Invoices', path: '/invoices', icon: Receipt },
         { title: 'Users', path: '/users', icon: Shield },
     ];
-
     const style = ({ isActive }) => clsx("flex items-center gap-3 rounded-lg px-3 py-2.5 text-base font-medium transition duration-300 text-slate-100 hover:bg-cyan-90 max-lg:py-1.5 max-lg:gap-2 max-md:text-sm max-md:py-2", isActive ? "bg-cyan-900" : "");
     
     return(
-        <section className={`h-screen top-0 sticky transition-all duration-300 overflow-hidden bg-cyan-950 max-lg:invisible ${full ? 'w-2/10 max-lg:w-0' : 'w-0 max-lg:visible max-lg:w-4/10 max-md:w-5/10'}`}>
+        <section className={`h-screen top-0 sticky transition-all duration-300 overflow-hidden bg-cyan-950 z-50 max-lg:w-0 max-lg:fixed max-lg:invisible ${full ? 'w-2/10' : 'w-0 max-lg:visible max-lg:w-4/10 max-md:w-5/10'}`}>
             <div className="px-4 py-2 flex gap-3 items-center border-b border-white/50 max-lg:px-2 max-sm:px-1 max-sm:gap-1">
                 <Activity className="size-8 text-teal-400"/>
                 <div>
@@ -47,6 +51,7 @@ export default function LinksLayout({full, action}){
                             <NavLink
                                 to={item.path}
                                 className={style}
+                                onClick={handelClose}
                             >
                                 <item.icon className="size-5 max-md:size-4" />
                                 {item.title}

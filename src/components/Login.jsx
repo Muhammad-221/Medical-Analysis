@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+// import "../Login.bootstrap.css";
 
 function FormLogin() {
 
@@ -30,6 +31,7 @@ function FormLogin() {
                         placeholder="username"
                         value={formLogin.userName}
                         onChange={changeUserName}
+                        className="focus:border-purple-600 focus:ring-2 focus:ring-purple-300"
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     <Form.Control.Feedback type="invalid">
@@ -44,6 +46,7 @@ function FormLogin() {
                         placeholder="password"
                         value={formLogin.password}
                         onChange={changePassword}
+                        className="focus:border-purple-600 focus:ring-2 focus:ring-purple-300"
                     />
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                     <Form.Control.Feedback type="invalid">

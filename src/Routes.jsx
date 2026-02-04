@@ -1,4 +1,5 @@
-import WithDashLayout from "./Layouts/WithDash";
+import WithDashLayout from "./utils/WithDash";
+import ErrorPage from "./Pages/Error";
 import DoctorsPage from "./Pages/Sectoions/Doctors";
 import EmployeesPage from "./Pages/Sectoions/Employees";
 import DashboardPage from "./Pages/Sectoions/Home";
@@ -51,10 +52,10 @@ const routes = [
         path: "/users",
         element: WithDashLayout(<UsersPage/>),
     },
-    // {
-    //     path: "*",
-    //     element: <ErrorPage/>,
-    // },
+    {
+        path: "*",
+        element: <ErrorPage/>,
+    },
 ]
 
 export {routes};
