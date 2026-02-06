@@ -1,23 +1,33 @@
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { formSchema } from "./Schema";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { AlertCircle } from "lucide-react";
 
-export default function AddPatient({open, close, add, patient, setFormPatient}) {
-    const {name, email, phone, dateOfBirth, gender, address} = patient;
+export default function AddPatient({open, close, add}) {
+    const form = useForm({
+        resolver: zodResolver(formSchema),
+            mode: "onBlur",
+            reValidateMode: "onChange",
+            defaultValues: {
+            name: "",
+            email: "",
+            phone: "",
+            dateOfBirth: "",
+            gender: undefined,
+            address: "",
+        },
+    });
+    const onSubmit = (data) => {
+        add(data);
+        form.reset();
+        close(false);
+    };
     if (!open) return null;
 
     return (
@@ -27,48 +37,157 @@ export default function AddPatient({open, close, add, patient, setFormPatient}) 
                     <CardTitle>Add New Patient</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <form>
-                        <div className="flex flex-col gap-4">
-                            <div className="grid gap-2 max-sm:gap-1">
-                                <Label htmlFor="name">Full Name</Label>
-                                <Input value={name} id="name" type="text" placeholder="Enter patient's full name" required onChange={(e) => setFormPatient({...patient, name: e.target.value})} />
+                    <form id="add-form" onSubmit={form.handleSubmit(onSubmit)}>
+                        <FieldGroup>
+                            <Controller
+                                name="name"
+                                control={form.control}
+                                render={({ field, fieldState }) => (
+                                    <Field className="relative grid gap-2" data-invalid={fieldState.invalid}>
+                                        <FieldLabel>Full Name</FieldLabel>
+                                        <div className="relative">
+                                            <Input placeholder="Enter patient's full name" type="text" {...field} className="pr-10"/>
+                                            {fieldState.isTouched && fieldState.error && (
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                </TooltipTrigger>
+                                                <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                            )}
+                                        </div>
+                                    </Field>
+                                )}
+                            />
+                            <Controller
+                                name="email"
+                                control={form.control}
+                                render={({ field, fieldState }) => (
+                                    <Field className="relative grid gap-2" data-invalid={fieldState.invalid}>
+                                        <FieldLabel>Email Address</FieldLabel>
+                                        <div className="relative">
+                                            <Input placeholder="Enter email address" type="email" {...field} className="pr-10"/>
+                                            {fieldState.isTouched && fieldState.error && (
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                </TooltipTrigger>
+                                                <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                            )}
+                                        </div>
+                                    </Field>
+                                )}
+                            />
+                            <div className="flex gap-1">
+                                <Controller
+                                    name="phone"
+                                    control={form.control}
+                                    render={({ field, fieldState }) => (
+                                        <Field className="relative grid gap-2 basis-2/3" data-invalid={fieldState.invalid}>
+                                            <FieldLabel>Phone Number</FieldLabel>
+                                            <div className="relative">
+                                                <Input placeholder="Enter phone number" type="tel" {...field} className="pr-10"/>
+                                                {fieldState.isTouched && fieldState.error && (
+                                                <TooltipProvider>
+                                                    <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
+                                                )}
+                                            </div>
+                                        </Field>
+                                    )}
+                                />
+                                <Controller
+                                    name="dateOfBirth"
+                                    control={form.control}
+                                    render={({ field, fieldState }) => (
+                                        <Field className="relative grid gap-2 basis-1/3" data-invalid={fieldState.invalid}>
+                                            <FieldLabel>Date of Birth</FieldLabel>
+                                            <div className="relative">
+                                                <Input type="date" {...field} className="pr-10"/>
+                                                {fieldState.isTouched && fieldState.error && (
+                                                <TooltipProvider>
+                                                    <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
+                                                )}
+                                            </div>
+                                        </Field>
+                                    )}
+                                />
                             </div>
-                            <div className="grid gap-2 max-sm:gap-1">
-                                <Label htmlFor="email">Email Address</Label>
-                                <Input value={email} id="email" type="email" placeholder="Enter email address" required onChange={(e) => setFormPatient({...patient, email: e.target.value})}/>
-                            </div>
-                            <div className="flex justify-between max-sm:flex-col max-sm:gap-4">
-                                <div className="grid gap-2 max-sm:gap-1">
-                                    <Label htmlFor="phone">Phone Number</Label>
-                                    <Input value={phone} id="phone" type="tel" placeholder="Enter phone number" required onChange={(e) => setFormPatient({...patient, phone: e.target.value})}/>
-                                </div>
-                                <div className="grid gap-2 max-sm:gap-1">
-                                    <Label htmlFor="dob">Date of Birth</Label>
-                                    <Input value={dateOfBirth} id="dob" type="date" required onChange={(e) => setFormPatient({...patient, dateOfBirth: e.target.value})} />
-                                </div>
-                            </div>
-                            <div className="grid gap-2 max-sm:gap-1">
-                                <Label htmlFor="gender">Gender</Label>
-                                <Select className="w-full inline-block" value={gender} onValueChange={(value) => setFormPatient({...patient, gender: value})}>
-                                    <SelectTrigger>
-                                        <SelectValue placeholder="Select Gender" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="male">Male</SelectItem>
-                                        <SelectItem value="female">Female</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            <div className="grid gap-2 max-sm:gap-1">
-                                <Label htmlFor="address">Address</Label>
-                                <Input value={address} type="text" placeholder="Enter address" required onChange={(e) => setFormPatient({...patient, address: e.target.value})}/>
-                            </div>
-                        </div>
+                            <Controller
+                                name="gender"
+                                control={form.control}
+                                render={({ field, fieldState }) => (
+                                    <Field className="relative grid gap-2" data-invalid={fieldState.invalid}>
+                                        <FieldLabel>Gender</FieldLabel>
+                                        <div className="relative">
+                                            <Select value={field.value ?? ""} onValueChange={field.onChange}>
+                                                <SelectTrigger className="pr-10">
+                                                    <SelectValue placeholder="Select gender" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="Male">Male</SelectItem>
+                                                    <SelectItem value="Female">Female</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                            {fieldState.isTouched && fieldState.error && (
+                                                <TooltipProvider>
+                                                <Tooltip>
+                                                    <TooltipTrigger asChild>
+                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><AlertCircle size={16} /></span>
+                                                    </TooltipTrigger>
+                                                        <TooltipContent side="right">{fieldState.error.message}
+                                                    </TooltipContent>
+                                                </Tooltip>
+                                                </TooltipProvider>
+                                            )}
+                                        </div>
+                                    </Field>
+                                )}
+                            />
+                            <Controller
+                                name="address"
+                                control={form.control}
+                                render={({ field, fieldState }) => (
+                                    <Field className="relative grid gap-2" data-invalid={fieldState.invalid}>
+                                        <FieldLabel>Address</FieldLabel>
+                                        <div className="relative">
+                                            <Input placeholder="Enter address" type="text" {...field} className="pr-10"/>
+                                            {fieldState.isTouched && fieldState.error && (
+                                            <TooltipProvider>
+                                                <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                </TooltipTrigger>
+                                                <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
+                                                </Tooltip>
+                                            </TooltipProvider>
+                                            )}
+                                        </div>
+                                    </Field>
+                                )}
+                                />
+                        </FieldGroup>
                     </form>
                 </CardContent>
                 <CardFooter className="flex justify-end gap-4">
                     <Button variant="outline" onClick={() => close(false)}>Cancel</Button>
-                    <Button onClick={() => add()}>Add Patient</Button>
+                    <Button type="submit" form="add-form">Add Patient</Button>
                 </CardFooter>
             </Card>
         </div>

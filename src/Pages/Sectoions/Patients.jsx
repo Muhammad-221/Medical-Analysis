@@ -16,14 +16,6 @@ const patients = [
     { id: uuidv4(), name: 'Emily Davis', email: 'emily.d@email.com', phone: '+1 555-0104', dateOfBirth: '1995-02-14', gender: 'Female', address: '321 Elm St, Miami', createdAt: '2024-01-22' },
     { id: uuidv4(), name: 'Robert Wilson', email: 'r.wilson@email.com', phone: '+1 555-0105', dateOfBirth: '1982-09-30', gender: 'Male', address: '654 Cedar Ln, Seattle', createdAt: '2024-01-25' },
 ];
-const newPatient = {
-    name: "", 
-    email: "", 
-    phone: "", 
-    dateOfBirth: "", 
-    gender: "", 
-    address: "", 
-}
 
 export default function PatientsPage(){
     const [search, setSearch] = useState("")
@@ -31,7 +23,6 @@ export default function PatientsPage(){
     const [openDelete, setOpenDelete] = useState(false)
     const [openUpdate, setOpenUpdate] = useState(false)
     const [isPatient, setIsPatient] = useState(patients)
-    const [addPatient, setAddPatient] = useState(newPatient)
     const [selectedPatient, setSelectedPatient] = useState(null);
 
     const filteredPatients = isPatient.filter(patient => 
@@ -39,24 +30,26 @@ export default function PatientsPage(){
         patient.email.toLowerCase().includes(search.toLowerCase()) ||
         patient.phone.includes(search)
     );
-    const handleAddPatient = () => {
-        setIsPatient([
-            ...isPatient,
+    const handleAddPatient = (data) => {
+        setIsPatient((prev) => [
+            ...prev,
             {
-                ...addPatient,
-                id: uuidv4(),
-                createdAt: new Date().toISOString().split("T")[0]
-            }
+            ...data,
+            id: uuidv4(),
+            createdAt: new Date().toISOString().split("T")[0],
+            },
         ]);
-        setAddPatient(newPatient);
-        setOpenAdd(false);
     };
-    const handleUpdatePatient = (updatePatient) => {
-        setIsPatient((prev) => prev.map((p) => (p.id == updatePatient.id ? updatePatient : p)))
-        setOpenUpdate(false)
-    }
+    const handleUpdatePatient = (updated) => {
+        setIsPatient((prev) =>
+            prev.map((p) => (p.id === updated.id ? updated : p))
+        );
+        setOpenUpdate(false);
+    };
     const handleDeletePatient = () => {
-        setIsPatient(isPatient.filter((p) => p.id !== addPatient.id));
+        setIsPatient((prev) =>
+            prev.filter((p) => p.id !== selectedPatient.id)
+    );
         setOpenDelete(false);
     };
 
@@ -88,11 +81,11 @@ export default function PatientsPage(){
                                 <p className="text-sm text-slate-500"><MapPin className="inline mr-1 h-4 w-4"/>{patient.address}</p>
                             </div>
                             <div className="ml-auto mt-auto flex flex-col gap-3">
-                                <button onClick={() => {setAddPatient(patient); setOpenDelete(true)}}>
-                                    <Trash className="text-red-400 cursor-pointer opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-700"/>
+                                <button onClick={() => {setSelectedPatient(patient); setOpenDelete(true)}}>
+                                    <Trash className="text-red-400 cursor-pointer lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-700 visible"/>
                                 </button>
                                 <button onClick={() => {setSelectedPatient(patient); setOpenUpdate(true)}}>
-                                    <SquarePen className="text-blue-400 cursor-pointer opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-700"/>
+                                    <SquarePen className="text-blue-400 cursor-pointer lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-700 visible"/>
                                 </button>
                             </div>
                         </div>
@@ -103,8 +96,6 @@ export default function PatientsPage(){
                 open={openAdd} 
                 close={setOpenAdd} 
                 add={handleAddPatient} 
-                patient={addPatient}
-                setFormPatient={setAddPatient}
             />
             <DeletePatient
                 open={openDelete}
@@ -116,7 +107,7 @@ export default function PatientsPage(){
                 close={setOpenUpdate}
                 patient={selectedPatient}
                 onUpdate={handleUpdatePatient}
-            />
+                />
         </section>
     )
 }
