@@ -37,6 +37,7 @@ export default function AddPatient({open, close, add}) {
                     <CardTitle>Add New Patient</CardTitle>
                 </CardHeader>
                 <CardContent>
+                    <TooltipProvider>
                     <form id="add-form" onSubmit={form.handleSubmit(onSubmit)}>
                         <FieldGroup>
                             <Controller
@@ -48,14 +49,12 @@ export default function AddPatient({open, close, add}) {
                                         <div className="relative">
                                             <Input placeholder="Enter patient's full name" type="text" {...field} className="pr-10"/>
                                             {fieldState.isTouched && fieldState.error && (
-                                            <TooltipProvider>
-                                                <Tooltip>
+                                                <Tooltip trigger="hover | focus | click">
                                                 <TooltipTrigger asChild>
                                                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
-                                            </TooltipProvider>
                                             )}
                                         </div>
                                     </Field>
@@ -70,14 +69,12 @@ export default function AddPatient({open, close, add}) {
                                         <div className="relative">
                                             <Input placeholder="Enter email address" type="email" {...field} className="pr-10"/>
                                             {fieldState.isTouched && fieldState.error && (
-                                            <TooltipProvider>
-                                                <Tooltip>
+                                                <Tooltip trigger="hover | focus | click">
                                                 <TooltipTrigger asChild>
                                                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
-                                            </TooltipProvider>
                                             )}
                                         </div>
                                     </Field>
@@ -93,14 +90,12 @@ export default function AddPatient({open, close, add}) {
                                             <div className="relative">
                                                 <Input placeholder="Enter phone number" type="tel" {...field} className="pr-10"/>
                                                 {fieldState.isTouched && fieldState.error && (
-                                                <TooltipProvider>
-                                                    <Tooltip>
+                                                    <Tooltip trigger="hover | focus | click">
                                                     <TooltipTrigger asChild>
                                                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                     </TooltipTrigger>
                                                     <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                     </Tooltip>
-                                                </TooltipProvider>
                                                 )}
                                             </div>
                                         </Field>
@@ -115,14 +110,12 @@ export default function AddPatient({open, close, add}) {
                                             <div className="relative">
                                                 <Input type="date" {...field} className="pr-10"/>
                                                 {fieldState.isTouched && fieldState.error && (
-                                                <TooltipProvider>
-                                                    <Tooltip>
+                                                    <Tooltip trigger="hover | focus | click">
                                                     <TooltipTrigger asChild>
                                                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                     </TooltipTrigger>
                                                     <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                     </Tooltip>
-                                                </TooltipProvider>
                                                 )}
                                             </div>
                                         </Field>
@@ -146,15 +139,13 @@ export default function AddPatient({open, close, add}) {
                                                 </SelectContent>
                                             </Select>
                                             {fieldState.isTouched && fieldState.error && (
-                                                <TooltipProvider>
-                                                <Tooltip>
+                                                <Tooltip trigger="hover | focus | click">
                                                     <TooltipTrigger asChild>
                                                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><AlertCircle size={16} /></span>
                                                     </TooltipTrigger>
                                                         <TooltipContent side="right">{fieldState.error.message}
                                                     </TooltipContent>
                                                 </Tooltip>
-                                                </TooltipProvider>
                                             )}
                                         </div>
                                     </Field>
@@ -169,14 +160,12 @@ export default function AddPatient({open, close, add}) {
                                         <div className="relative">
                                             <Input placeholder="Enter address" type="text" {...field} className="pr-10"/>
                                             {fieldState.isTouched && fieldState.error && (
-                                            <TooltipProvider>
-                                                <Tooltip>
+                                                <Tooltip trigger="hover | focus | click">
                                                 <TooltipTrigger asChild>
                                                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
-                                            </TooltipProvider>
                                             )}
                                         </div>
                                     </Field>
@@ -184,6 +173,7 @@ export default function AddPatient({open, close, add}) {
                                 />
                         </FieldGroup>
                     </form>
+                    </TooltipProvider>
                 </CardContent>
                 <CardFooter className="flex justify-end gap-4">
                     <Button variant="outline" onClick={() => close(false)}>Cancel</Button>
