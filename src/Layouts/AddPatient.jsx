@@ -26,7 +26,6 @@ export default function AddPatient({open, close, add}) {
     const onSubmit = (data) => {
         add(data);
         form.reset();
-        close(false);
     };
     if (!open) return null;
 

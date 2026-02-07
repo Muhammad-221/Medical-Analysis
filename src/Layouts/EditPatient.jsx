@@ -30,7 +30,6 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
 
     const onSubmit = (data) => {
         onUpdate({...data, id: patient.id});
-        close(false);
     };
 
     if (!open || !patient) return null;

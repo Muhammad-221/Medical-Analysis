@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Phone, MapPin, Trash, SquarePen, Plus } from 'lucide-react';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const patients = [
@@ -25,31 +25,45 @@ export default function PatientsPage(){
     const [isPatient, setIsPatient] = useState(patients)
     const [selectedPatient, setSelectedPatient] = useState(null);
 
+    useEffect(() => {
+        const storageUpdate = JSON.parse(localStorage.getItem("updatePatient")) || patients;
+        setIsPatient(storageUpdate );
+    },[]);
+
     const filteredPatients = isPatient.filter(patient => 
         patient.name.toLowerCase().includes(search.toLowerCase()) ||
         patient.email.toLowerCase().includes(search.toLowerCase()) ||
         patient.phone.includes(search)
     );
+    
     const handleAddPatient = (data) => {
-        setIsPatient((prev) => [
-            ...prev,
-            {
-            ...data,
-            id: uuidv4(),
-            createdAt: new Date().toISOString().split("T")[0],
-            },
-        ]);
+        setIsPatient((prev) =>{
+            const addPatient =[
+                ...prev,
+                {
+                ...data,
+                id: uuidv4(),
+                createdAt: new Date().toISOString().split("T")[0],
+            }]
+            localStorage.setItem("updatePatient", JSON.stringify(addPatient));
+            return addPatient
+        });
+        setOpenAdd(false);
     };
     const handleUpdatePatient = (updated) => {
-        setIsPatient((prev) =>
-            prev.map((p) => (p.id === updated.id ? updated : p))
-        );
+        setIsPatient((prev) =>{
+            const updatePatient = prev.map((p) => (p.id === updated.id ? updated : p));
+            localStorage.setItem("updatePatient", JSON.stringify(updatePatient));
+            return updatePatient
+        });
         setOpenUpdate(false);
     };
     const handleDeletePatient = () => {
-        setIsPatient((prev) =>
-            prev.filter((p) => p.id !== selectedPatient.id)
-    );
+        setIsPatient((prev) =>{
+            const DeletePatient = prev.filter((p) => p.id !== selectedPatient.id);
+            localStorage.setItem("updatePatient", JSON.stringify(DeletePatient));
+            return DeletePatient
+        });
         setOpenDelete(false);
     };
 
