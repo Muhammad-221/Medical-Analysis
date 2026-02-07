@@ -53,7 +53,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                                     <div className="relative">
                                         <Input type="text" {...field} className="pr-10"/>
                                         {fieldState.isTouched && fieldState.error && (
-                                            <Tooltip trigger="hover | focus | click">
+                                            <Tooltip>
                                             <TooltipTrigger asChild>
                                                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                             </TooltipTrigger>
@@ -73,7 +73,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                                     <div className="relative">
                                         <Input type="email" {...field} className="pr-10"/>
                                         {fieldState.isTouched && fieldState.error && (
-                                            <Tooltip trigger="hover | focus | click">
+                                            <Tooltip>
                                             <TooltipTrigger asChild>
                                                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                             </TooltipTrigger>
@@ -94,7 +94,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                                         <div className="relative">
                                             <Input type="tel" {...field} className="pr-10"/>
                                             {fieldState.isTouched && fieldState.error && (
-                                                <Tooltip trigger="hover | focus | click">
+                                                <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
@@ -114,7 +114,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                                         <div className="relative">
                                             <Input type="date" {...field} className="pr-10"/>
                                             {fieldState.isTouched && fieldState.error && (
-                                                <Tooltip trigger="hover | focus | click">
+                                                <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
@@ -143,7 +143,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                                             </SelectContent>
                                         </Select>
                                         {fieldState.isTouched && fieldState.error && (
-                                            <Tooltip trigger="hover | focus | click">
+                                            <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><AlertCircle size={16} /></span>
                                                 </TooltipTrigger>
@@ -164,7 +164,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                                     <div className="relative">
                                         <Input type="text" {...field} className="pr-10"/>
                                         {fieldState.isTouched && fieldState.error && (
-                                            <Tooltip trigger="hover | focus | click">
+                                            <Tooltip>
                                             <TooltipTrigger asChild>
                                                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
                                             </TooltipTrigger>
