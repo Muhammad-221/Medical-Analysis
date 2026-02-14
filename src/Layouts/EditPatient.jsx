@@ -9,8 +9,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { AlertCircle } from "lucide-react";
+import { usePatients } from "@/contexts/PatientContext";
 
-export default function UpdatePatient({open, close, patient, onUpdate}) {
+export default function UpdatePatient() {
+    const { ui, selectedPatient, dispatch } = usePatients()
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -23,16 +25,16 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
         },
     });
     useEffect(() => {
-        if (patient) {
-            form.reset(patient);
+        if (selectedPatient) {
+            form.reset(selectedPatient);
         }
-    }, [patient, form]);
+    }, [selectedPatient, form]);
 
     const onSubmit = (data) => {
-        onUpdate({...data, id: patient.id});
+        dispatch({type: "updatePatient", payload: {...data, id: selectedPatient.id}});
     };
 
-    if (!open || !patient) return null;
+    if (!ui.openUpdate || !selectedPatient) return null;
 
     return (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
@@ -180,7 +182,7 @@ export default function UpdatePatient({open, close, patient, onUpdate}) {
                     </TooltipProvider>
                 </CardContent>
                 <CardFooter className="flex justify-end gap-4">
-                    <Button variant="outline" onClick={() => close(false)}>Cancel</Button>
+                    <Button variant="outline" onClick={() => dispatch({type: "toggleModal", payload: "openUpdate"})}>Cancel</Button>
                     <Button type="submit" form="update-form">Save Changes</Button>
                 </CardFooter>
             </Card>

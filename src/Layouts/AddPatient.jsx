@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { AlertCircle } from "lucide-react";
+import { usePatients } from "@/contexts/PatientContext";
 
-export default function AddPatient({open, close, add}) {
+export default function AddPatient() {
+    const { ui, dispatch } = usePatients()
     const form = useForm({
         resolver: zodResolver(formSchema),
             mode: "onBlur",
@@ -24,10 +26,10 @@ export default function AddPatient({open, close, add}) {
         },
     });
     const onSubmit = (data) => {
-        add(data);
+        dispatch({type: "addPatient", payload: data});
         form.reset();
     };
-    if (!open) return null;
+    if (!ui.openAdd) return null;
 
     return (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
@@ -175,7 +177,7 @@ export default function AddPatient({open, close, add}) {
                     </TooltipProvider>
                 </CardContent>
                 <CardFooter className="flex justify-end gap-4">
-                    <Button variant="outline" onClick={() => close(false)}>Cancel</Button>
+                    <Button variant="outline" onClick={() => dispatch({type: "toggleModal", payload: "openAdd"})}>Cancel</Button>
                     <Button type="submit" form="add-form">Add Patient</Button>
                 </CardFooter>
             </Card>
