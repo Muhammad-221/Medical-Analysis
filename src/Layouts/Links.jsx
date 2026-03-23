@@ -22,10 +22,10 @@ export default function LinksLayout({full, action }){
     }
 
     const navItems = [
-        { title: 'Dashboard', path: '/', icon: LayoutDashboard },
+        { title: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+        { title: 'Patients', path: '/patients', icon: Users },
         { title: 'Lab Sections', path: '/sections', icon: FlaskConical },
         { title: 'Doctors', path: '/doctors', icon: Stethoscope },
-        { title: 'Patients', path: '/patients', icon: Users },
         { title: 'Lab Tests', path: '/tests', icon: TestTube },
         { title: 'Employees', path: '/employees', icon: UserCog },
         { title: 'Reports', path: '/reports', icon: FileText },

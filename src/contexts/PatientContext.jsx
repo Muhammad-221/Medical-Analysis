@@ -41,7 +41,7 @@ const patientsReducer = (state, action) => {
             return {
                 ...state,
                 patients: state.patients.map((p) => (
-                    p.id === action.payload.id ? action.payload : p
+                    p.id === action.payload.id ? {...p, ...action.payload} : p
                 )),
                 ui: {...state.ui, openUpdate: false}
             };
@@ -71,12 +71,12 @@ export const PatientsProvider = ({children}) => {
     const [state, dispatch] = useReducer(patientsReducer, initialState);
 
     useEffect(() => {
-        const storageUpdate = JSON.parse(localStorage.getItem("updatePatient")) || initialPatients;
+        const storageUpdate = JSON.parse(localStorage.getItem("patients")) || initialPatients;
         dispatch({type: "setPatients", payload: storageUpdate});
     },[]);
 
     useEffect(() => {
-        localStorage.setItem("updatePatient", JSON.stringify(state.patients));
+        localStorage.setItem("patients", JSON.stringify(state.patients));
     },[state.patients]);
 
     const filteredPatients = useMemo(() => {
