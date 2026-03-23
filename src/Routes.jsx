@@ -12,12 +12,12 @@ import UsersPage from "./Pages/Sectoions/Users";
 import SigninPage from "./Pages/Signin";
 
 const routes = [
-    // {
-    //     path: "/",
-    //     element: <SigninPage/>
-    // },
     {
         path: "/",
+        element: <SigninPage/>
+    },
+    {
+        path: "/dashboard",
         element: WithDashLayout(<DashboardPage/>),
     },
     {
