@@ -1,12 +1,15 @@
 import { createRoot } from 'react-dom/client'
 import './App.css'
 import App from './App.jsx'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import AuthProvider from './contexts/AuthContext'
+import { Toaster } from "sonner";
 
 createRoot(document.getElementById('root')).render(
-    
-    <HashRouter>
+  <AuthProvider>
+    <BrowserRouter basename="/Medical-Analysis/"> 
+      <Toaster /> 
       <App />
-    </HashRouter>
-
+    </BrowserRouter> 
+  </AuthProvider>
 )

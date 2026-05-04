@@ -17,26 +17,26 @@ export default function LabTestsPage(){
             <TitleComp title={"Lab Tests"} description={"Available laboratory tests and pricing"}/>
             <div className="grid grid-cols-3 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-1">
                 {labTests.map((test) => (
-                    <div key={test.id} className="p-5 border border-slate-200 rounded-lg hover:shadow-md transition-shadow">
+                    <div key={test.id} className="p-5 border border-border bg-card rounded-lg hover:shadow-md transition-shadow">
                         <div className="flex mb-1">
-                            <div className="rounded-md p-2 bg-green-100/60">
-                                <TestTube className="h-5 w-5 text-green-600"/>
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                                <TestTube className="h-5 w-5 text-primary"/>
                             </div>
-                            <Badge variant="secondary" className="ml-auto bg-slate-100">{test.code}</Badge>
+                            <Badge variant="secondary" className="ml-auto">{test.code}</Badge>
                         </div>
                         <div>
-                            <h4 className="font-semibold text-lg text-slate-950 mb-2">{test.name}</h4>
-                            <p className="text-sm text-slate-500 mb-2">{test.description}</p>
-                            <p className="text-xs text-slate-500 mb-2">Section: {test.section}</p>
+                            <h4 className="font-semibold text-lg text-foreground mb-2">{test.name}</h4>
+                            <p className="text-sm text-muted-foreground mb-2">{test.description}</p>
+                            <p className="text-xs text-muted-foreground mb-2">Section: {test.section}</p>
                         </div>
                         <div className="flex justify-between mt-4">
                             <div className="flex items-center gap-1">
-                                <Clock className="h-4 w-4 text-slate-500"/>
-                                <span className="text-sm text-slate-500">{test.turnaroundTime}</span>
+                                <Clock className="h-4 w-4 text-muted-foreground"/>
+                                <span className="text-sm text-muted-foreground">{test.turnaroundTime}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <DollarSign className="h-4 w-4 text-green-600"/>
-                                <span className="text-sm text-green-600">{test.price}</span>
+                                <DollarSign className="h-4 w-4 text-success"/>
+                                <span className="text-sm text-success">{test.price}</span>
                             </div>
                         </div>
                     </div>

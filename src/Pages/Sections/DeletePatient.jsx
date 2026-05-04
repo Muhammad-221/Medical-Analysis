@@ -1,12 +1,5 @@
 import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-    CardDescription
-} from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { usePatients } from "@/contexts/PatientContext";
 
 export default function DeletePatient(){
@@ -26,7 +19,7 @@ export default function DeletePatient(){
                     <Button variant="outline" onClick={() => dispatch({type: "toggleModal", payload: "openDelete"})}>Cancel</Button>
                     <Button 
                         onClick={() => dispatch({type: "deletePatient", payload: selectedPatient})} 
-                        className="bg-red-500 hover:bg-red-600"
+                        className="bg-destructive/80 hover:bg-destructive/70"
                     >Delete Patient</Button>
                 </CardFooter>
             </Card>
