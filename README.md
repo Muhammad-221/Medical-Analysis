@@ -1,16 +1,49 @@
-# React + Vite
+# 🏥 Medical Analysis System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="https://muhammad-221.github.io/Medical-Analysis/">
+    <img src="https://img.shields.io/badge/Live-Demo-red?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo">
+  </a>
+  <img src="https://img.shields.io/github/stars/Muhammad-221/Medical-Analysis?style=for-the-badge&color=blue" alt="stars">
+  <img src="https://img.shields.io/github/languages/top/Muhammad-221/Medical-Analysis?style=for-the-badge&color=green" alt="top language">
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📝 Description
+**Medical Analysis** is a web-based platform designed to manage and display medical laboratory results efficiently. It provides a user-friendly interface for patients or clinicians to track health data, view analysis reports, and understand medical metrics in a digital format.
 
-## React Compiler
+## 🚀 Live Preview
+Explore the application live here:  
+👉 **[Medical Analysis Live Demo](https://muhammad-221.github.io/Medical-Analysis/)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📸 System Preview
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Muhammad-221/Medical-Analysis/main/preview.png" alt="Medical Analysis Dashboard" width="800">
+</p>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> **💡 Quick Tip:** To make the image above appear, take a screenshot of your website, rename it to `preview.png`, and upload it directly to the main folder of your repository.
+
+---
+
+## ✨ Key Features
+- 📋 **Report Management:** Organized display of various medical tests and results.
+- 🧪 **Test Accuracy:** Designed to handle complex medical data types and units.
+- 📱 **Responsive Design:** Accessible from tablets, smartphones, and desktops.
+- 🔍 **Easy Navigation:** Clear UI for non-technical users to find their reports.
+
+## 🛠 Tech Stack
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+).
+- **Icons & Fonts:** FontAwesome / Google Fonts.
+- **Deployment:** GitHub Pages.
+
+---
+
+## ⚙️ How to Run Locally
+
+1. **Clone the project:**
+   ```bash
+   git clone [https://github.com/Muhammad-221/Medical-Analysis.git](https://github.com/Muhammad-221/Medical-Analysis.git)
+
