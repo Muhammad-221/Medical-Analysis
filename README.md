@@ -35,7 +35,7 @@ Explore the application live here:
 - 🔍 **Easy Navigation:** Clear UI for non-technical users to find their reports.
 
 ## 🛠 Tech Stack
-- **Frontend:** HTML5, CSS3, JavaScript (ES6+).
+- **Frontend:** HTML5, JavaScript (ES6+), Tailwind CSS, Shadsn UI, Firebase, Charts.
 - **Icons & Fonts:** FontAwesome / Google Fonts.
 - **Deployment:** GitHub Pages.
 
