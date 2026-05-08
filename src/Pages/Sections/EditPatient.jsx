@@ -10,6 +10,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { AlertCircle } from "lucide-react";
 import { usePatients } from "@/contexts/PatientContext";
 import { formSchema } from "@/Layouts/Schema";
+import { toast } from "sonner";
 
 export default function UpdatePatient() {
     const { ui, selectedPatient, dispatch } = usePatients()
@@ -32,6 +33,7 @@ export default function UpdatePatient() {
 
     const onSubmit = (data) => {
         dispatch({type: "updatePatient", payload: {...data, id: selectedPatient.id}});
+        toast.success("Patient updated successfully");
     };
 
     if (!ui.openUpdate || !selectedPatient) return null;
@@ -57,7 +59,7 @@ export default function UpdatePatient() {
                                         {fieldState.isTouched && fieldState.error && (
                                             <Tooltip>
                                             <TooltipTrigger asChild>
-                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                             </TooltipTrigger>
                                             <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                             </Tooltip>
@@ -77,7 +79,7 @@ export default function UpdatePatient() {
                                         {fieldState.isTouched && fieldState.error && (
                                             <Tooltip>
                                             <TooltipTrigger asChild>
-                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                             </TooltipTrigger>
                                             <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                             </Tooltip>
@@ -98,7 +100,7 @@ export default function UpdatePatient() {
                                             {fieldState.isTouched && fieldState.error && (
                                                 <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
@@ -118,7 +120,7 @@ export default function UpdatePatient() {
                                             {fieldState.isTouched && fieldState.error && (
                                                 <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
@@ -147,7 +149,7 @@ export default function UpdatePatient() {
                                         {fieldState.isTouched && fieldState.error && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><AlertCircle size={16} /></span>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80"><AlertCircle size={16} /></span>
                                                 </TooltipTrigger>
                                                     <TooltipContent side="right">{fieldState.error.message}
                                                 </TooltipContent>
@@ -168,7 +170,7 @@ export default function UpdatePatient() {
                                         {fieldState.isTouched && fieldState.error && (
                                             <Tooltip>
                                             <TooltipTrigger asChild>
-                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                             </TooltipTrigger>
                                             <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                             </Tooltip>

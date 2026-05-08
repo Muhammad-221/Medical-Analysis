@@ -29,6 +29,7 @@ export default function AddPatient() {
     const onSubmit = (data) => {
         dispatch({type: "addPatient", payload: data});
         form.reset();
+        toast.success("Patient added successfully");
     };
     if (!ui.openAdd) return null;
 
@@ -53,7 +54,7 @@ export default function AddPatient() {
                                             {fieldState.isTouched && fieldState.error && (
                                                 <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
@@ -73,7 +74,7 @@ export default function AddPatient() {
                                             {fieldState.isTouched && fieldState.error && (
                                                 <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>
@@ -94,7 +95,7 @@ export default function AddPatient() {
                                                 {fieldState.isTouched && fieldState.error && (
                                                     <Tooltip>
                                                     <TooltipTrigger asChild>
-                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                     </TooltipTrigger>
                                                     <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                     </Tooltip>
@@ -114,7 +115,7 @@ export default function AddPatient() {
                                                 {fieldState.isTouched && fieldState.error && (
                                                     <Tooltip>
                                                     <TooltipTrigger asChild>
-                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                     </TooltipTrigger>
                                                     <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                     </Tooltip>
@@ -143,7 +144,7 @@ export default function AddPatient() {
                                             {fieldState.isTouched && fieldState.error && (
                                                 <Tooltip>
                                                     <TooltipTrigger asChild>
-                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><AlertCircle size={16} /></span>
+                                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80"><AlertCircle size={16} /></span>
                                                     </TooltipTrigger>
                                                         <TooltipContent side="right">{fieldState.error.message}
                                                     </TooltipContent>
@@ -164,7 +165,7 @@ export default function AddPatient() {
                                             {fieldState.isTouched && fieldState.error && (
                                                 <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500 cursor-pointer"><AlertCircle size={16}/></span>
+                                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-destructive/80 cursor-pointer"><AlertCircle size={16}/></span>
                                                 </TooltipTrigger>
                                                 <TooltipContent side="right"><p className="text-sm">{fieldState.error.message}</p></TooltipContent>
                                                 </Tooltip>

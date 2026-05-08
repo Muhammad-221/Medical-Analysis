@@ -11,7 +11,7 @@ const reports = [
 
 export default function ReportsPage() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-md:mb-15">
         <div>
             <h1 className="text-2xl font-bold tracking-tight text-foreground">Reports</h1>
             <p className="text-sm text-muted-foreground">View and download generated reports.</p>

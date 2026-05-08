@@ -11,7 +11,7 @@ const stats = [
 ];
 export default function DashboardPage(){
     return(
-        <section className="space-y-6">
+        <section className="space-y-6 max-md:mb-15">
             <TitleComp title={"Dashboard"} description={"Overview of your medical analysis center"}/>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((item) => (

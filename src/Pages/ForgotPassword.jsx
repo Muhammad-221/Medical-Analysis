@@ -27,7 +27,7 @@ function ForgotPassword() {
     return (
         <form onSubmit={handleSubmit} method="POST" className="space-y-3">
             <div className='space-y-1'>
-                <Label htmlFor="email" className="block text-sm/6 font-medium text-gray-900 max-sm:text-sm">
+                <Label htmlFor="email" className="block text-sm/6 font-medium text-foreground max-sm:text-sm">
                     Your Email
                 </Label>
                 <Input
@@ -39,14 +39,14 @@ function ForgotPassword() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-muted px-3 py-1.5 text-base text-muted-foreground sm:text-sm/6"
                 />
             </div>
             <div>
                 <Button
                     type="submit"
                     disabled={loading}
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="px-3 py-1.5 rounded-lg bg-primary text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                     Reset Password
                 </Button>

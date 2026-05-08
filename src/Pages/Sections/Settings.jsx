@@ -44,7 +44,7 @@ export default function SettingsPage() {
             })
     };
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 max-md:mb-15">
             <div>
                 <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
                 <p className="text-sm text-muted-foreground">Manage your account and system preferences.</p>
@@ -53,7 +53,7 @@ export default function SettingsPage() {
                 <h3 className="text-lg font-semibold text-foreground">Profile</h3>
                 <form onSubmit={handleSubmit} method="POST" className="mt-4 space-y-4">
                     <div className='space-y-1'>
-                        <Label htmlFor="name" className="block text-sm/6 font-medium text-gray-900">
+                        <Label htmlFor="name" className="block text-sm/6 font-medium text-foreground">
                             Full Name
                         </Label>
                         <Input
@@ -65,11 +65,11 @@ export default function SettingsPage() {
                             type="text"
                             required
                             autoComplete="name"
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md px-3 py-1.5 text-base text-muted-foreground sm:text-sm/6"
                         />
                     </div>
                     <div className='space-y-1'>
-                        <Label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
+                        <Label htmlFor="email" className="block text-sm/6 font-medium text-foreground">
                             Email address
                         </Label>
                         <Input
@@ -81,11 +81,11 @@ export default function SettingsPage() {
                             type="email"
                             required
                             autoComplete="email"
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md px-3 py-1.5 text-base text-muted-foreground sm:text-sm/6"
                         />
                     </div>
                     <div className='space-y-1'>
-                        <Label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
+                        <Label htmlFor="password" className="block text-sm/6 font-medium text-foreground">
                             Password
                         </Label>
                         <Input
@@ -96,11 +96,11 @@ export default function SettingsPage() {
                             placeholder="Enter your password"
                             autoComplete="new-password"
                             type="password"
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md px-3 py-1.5 text-base text-muted-foreground sm:text-sm/6"
                         />
                     </div>
                     <div className='space-y-1'>
-                        <Label htmlFor="confirmPassword" className="block text-sm/6 font-medium text-gray-900 max-sm:text-sm">
+                        <Label htmlFor="confirmPassword" className="block text-sm/6 font-medium text-foreground">
                             Confirm Password
                         </Label>
                         <Input
@@ -111,7 +111,7 @@ export default function SettingsPage() {
                             placeholder="Confirm your password"
                             autoComplete="new-password"
                             type="password"
-                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            className="block w-full rounded-md px-3 py-1.5 text-base text-muted-foreground sm:text-sm/6"
                         />
                     </div>
                     <div className='space-y-1'>
@@ -126,7 +126,7 @@ export default function SettingsPage() {
                     <Button
                         type="submit"
                         disabled={loading}
-                        className="h-10 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                        className="h-10 px-6 rounded-lg bg-primary text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
                     >
                         Save Changes
                     </Button>

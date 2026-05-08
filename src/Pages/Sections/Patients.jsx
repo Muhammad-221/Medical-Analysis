@@ -12,7 +12,7 @@ export default function PatientsPage(){
     const { search, filteredPatients, dispatch } = usePatients()
 
     return(
-        <section className="px-5 relative">
+        <section className="space-y-6 max-md:mb-15">
             <TitleComp title={"Patients"} description={"Manage patient records and information"}/>
             <div className="flex max-sm:flex-col max-sm:mb-5">
                 <Input 
@@ -32,21 +32,21 @@ export default function PatientsPage(){
                     <div key={patient.id} className="p-5 border border-border bg-card rounded-lg hover:shadow-md transition-shadow duration-300 group">
                         <div className="flex">
                             <h4 className="font-medium text-foreground">{patient.name}</h4>
-                            <p className="text-sm text-muted-foreground ml-auto">{new Date(patient.dateOfBirth).toLocaleDateString()}</p>
+                            <p className="text-sm text-muted-foreground ml-auto max-md:text-xs">{new Date(patient.dateOfBirth).toLocaleDateString()}</p>
                         </div>
                         <div className="flex">
                             <div>
                                 <Badge variant="outline" className={"mb-3"}>{patient.gender}</Badge>
-                                <p className="text-sm text-muted-foreground mb-2"><Mail className="inline mr-1 h-4 w-4"/>{patient.email}</p>
-                                <p className="text-sm text-muted-foreground mb-2"><Phone className="inline mr-1 h-4 w-4"/>{patient.phone}</p>
-                                <p className="text-sm text-muted-foreground"><MapPin className="inline mr-1 h-4 w-4"/>{patient.address}</p>
+                                <p className="text-sm text-muted-foreground max-md:text-xs"><Mail className="inline mr-1 size-4  max-md:size-3"/>{patient.email}</p>
+                                <p className="text-sm text-muted-foreground max-md:text-xs"><Phone className="inline mr-1 size-4 max-md:size-3"/>{patient.phone}</p>
+                                <p className="text-sm text-muted-foreground max-md:text-xs"><MapPin className="inline mr-1 size-4 max-md:size-3"/>{patient.address}</p>
                             </div>
                             <div className="ml-auto mt-auto flex flex-col gap-3">
                                 <button onClick={() => {dispatch({type: "toggleModal", payload: "openDelete"}); dispatch({type: "setSelected", payload: patient})}}>
-                                    <Trash className="text-destructive cursor-pointer lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-700 visible"/>
+                                    <Trash className="text-destructive cursor-pointer lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-700 visible max-md:size-5"/>
                                 </button>
                                 <button onClick={() => {dispatch({type: "toggleModal", payload: "openUpdate"}); dispatch({type: "setSelected", payload: patient})}}>
-                                    <SquarePen className="text-primary/70 cursor-pointer lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-700 visible"/>
+                                    <SquarePen className="text-primary/70 cursor-pointer lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible transition-opacity duration-700 visible max-md:size-5"/>
                                 </button>
                             </div>
                         </div>

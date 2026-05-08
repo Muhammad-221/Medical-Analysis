@@ -54,7 +54,7 @@ export default function LinksLayout({collapsed}) {
       </aside>
       {/* Mobile floating bottom navigation */}
       <nav
-        className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-90 w-[calc(100%-2rem)] max-w-lg bg-card/95 backdrop-blur border border-border rounded-full shadow-[0_8px_30px_-4px_rgba(0,0,0,0.25)]"
+        className="md:hidden fixed bottom-2 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-lg bg-card/95 backdrop-blur border border-border rounded-xl shadow-[0_8px_30px_-4px_rgba(0,0,0,0.25)]"
         style={{ marginBottom: "env(safe-area-inset-bottom)" }}
         aria-label="Primary"
       >
