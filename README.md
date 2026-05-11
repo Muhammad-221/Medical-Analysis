@@ -36,8 +36,7 @@ Explore the application live here:
 
 ## 🛠 Tech Stack
 - **Frontend:** HTML5, JavaScript (ES6+), Tailwind CSS, Shadsn UI, Firebase, Charts.
-- **Icons & Fonts:** FontAwesome / Google Fonts.
-- **Deployment:** GitHub Pages.
+- **Deployment:** Vercel.
 
 ---
 
