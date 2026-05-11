@@ -1,7 +1,7 @@
 # 🏥 Medical Analysis System
 
 <p align="center">
-  <a href="https://muhammad-221.github.io/Medical-Analysis/">
+  <a href="https://medical-analysis-six.vercel.app/">
     <img src="https://img.shields.io/badge/Live-Demo-red?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo">
   </a>
   <img src="https://img.shields.io/github/stars/Muhammad-221/Medical-Analysis?style=for-the-badge&color=blue" alt="stars">
@@ -15,7 +15,7 @@
 
 ## 🚀 Live Preview
 Explore the application live here:  
-👉 **[Medical Analysis Live Demo](https://muhammad-221.github.io/Medical-Analysis/)**
+👉 **[Medical Analysis Live Demo](https://medical-analysis-six.vercel.app/)**
 
 ---
 
