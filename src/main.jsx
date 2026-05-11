@@ -10,10 +10,8 @@ createRoot(document.getElementById('root')).render(
   <ThemeProvider>
     <AuthProvider>
       <HashRouter>
-        <BrowserRouter basename="/Medical-Analysis/"> 
-          <Toaster position="top-right" richColors/> 
-          <App />
-        </BrowserRouter> 
+        <Toaster position="top-right" richColors/> 
+        <App />
       </HashRouter>
     </AuthProvider>
   </ThemeProvider>
